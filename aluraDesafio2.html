@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7 Days Of Code</title>
+  <link rel="stylesheet" href="aluraDesafio2.css">
+</head>
+<body>
+  <header>
+      <h1>Pesquisa</h1><hr>
+  </header>
+  <section>
+      <div>
+        Qual seu nome?
+        <input type="text" name="" id="nome">
+        <p></p>
+        Qual sua idade?
+        <input type="number" name="" id="idade">
+        <p></p>
+        Linguagem que esta Apredendo: 
+        <input type="text" name="" id="linguagem">
+        <p></p>
+        <input type="button" value="Enviar" id="enviar" onclick="enviar()">
+      </div>
+      <p></p>
+      <div id="res">
+      Preencha os dados acima...
+      </div>
+  </section>
+    <script>
+          
+      function enviar(){
+          var nome = document.getElementById('nome')
+          var idade = document.getElementById('idade')
+          var linguagem = document.getElementById('linguagem')
+          var res = document.getElementById('res')
+          var resp1 = nome.value
+          var anos = Number(idade.value)
+          var ling = linguagem.value
+    res.innerHTML = `Olá ${resp1}, você tem ${anos} anos e atualmete estuda ${ling}! `
+    }
+    
+  </script>
+  <input type="radio" name="Voce esta gostando?" id="">
+</body>
+</html>
