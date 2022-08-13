@@ -1,5 +1,5 @@
 const prompt = require('prompt-sync')({ sigint: true })
-var resp1, resp2, resp3, resp4,tech, cons = ""
+var resp1, resp2, resp3, resp4, tech, cons = ""
 
 console.log("======================================================")
 console.log("-----------------> 7 Days of Code <-------------------")
