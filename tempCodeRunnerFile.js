@@ -1,1 +1,2 @@
-const prompt = require('prompt-sync')({ sigint: true })
+
+                laticinios.push(item)
