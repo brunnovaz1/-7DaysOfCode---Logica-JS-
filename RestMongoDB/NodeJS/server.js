@@ -1,5 +1,7 @@
 //servidor HTTP Local
 //import http from 'http';          //protocolo mais comum de comunicação(cliente/servidor) request - response
+
+import "dotenv/config";
 import app from "./src/app.js"         //assume após instalação do express
 
 const PORT = 3000;
