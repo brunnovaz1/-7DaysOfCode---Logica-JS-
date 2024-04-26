@@ -1,4 +1,5 @@
 import livro from "../models/Livro.js";
+import { autor } from "../models/Autor.js";
 
 
 class LivroController {
@@ -22,11 +23,15 @@ class LivroController {
   }
 
   static async cadastrarLivro (req, res){
+    const novoLivro = req.body;                                //após a integração do autor 
     try{
-      const novoLivro = await livro.create(req.body)
-      res.status(201).json({message: "criado com sucesso!", livro: novoLivro})   //novoLivro e o retorno do método create acima
+      //const novoLivro = await livro.create(req.body);
+      const autorEncontrado = await autor.findById(novoLivro.autor);
+      const livroCompleto = { ...novoLivro, autor: { ... autorEncontrado._doc }};     //... copia todas propriedades e _doc limpa esses dados tirando prop add pelo mongoose
+      const livroCriado = await livro.create(livroCompleto)
+      res.status(201).json({message: "criado com sucesso!", livro: livroCriado});   //novoLivro e o retorno do método create acima
     } catch (erro) {
-      res.status(500).json({message: `${erro.message} - falha ao cadastrar livro`})
+      res.status(500).json({message: `${erro.message} - falha ao cadastrar livro`});
     }
   }
 
@@ -46,7 +51,17 @@ class LivroController {
       await livro.findByIdAndDelete(id)
       res.status(200).json({message: "livro deletado"})
     } catch (erro) {
-      res.status(500).json({message: `${message.erro} - falha na exclusão`})
+      res.status(500).json({message: `${erro.message} - falha na exclusão`})
+    }
+  }
+
+  static async listarLivrosPorEditora (req, res) {
+    const editora = req.query.editora;
+    try{
+      const livrosPorEditora = await livro.find({editora: editora});   // 1º editora = propriedade, 2º editora = valor passado via parametro
+      res.status(200).json({livrosPorEditora});
+    } catch (erro) {
+      res.status(500).json({message: `${erro.message} - falha na busca`})
     }
   }
 
