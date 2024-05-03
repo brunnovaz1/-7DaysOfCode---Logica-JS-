@@ -59,7 +59,7 @@ class LivroController {
     const editora = req.query.editora;
     try{
       const livrosPorEditora = await livro.find({editora: editora});   // 1º editora = propriedade, 2º editora = valor passado via parametro
-      res.status(200).json({livrosPorEditora});
+      res.status(200).json({livrosPorEditora});                    //GET:   http://localhost:3000/livros/busca?editora="" 
     } catch (erro) {
       res.status(500).json({message: `${erro.message} - falha na busca`})
     }
