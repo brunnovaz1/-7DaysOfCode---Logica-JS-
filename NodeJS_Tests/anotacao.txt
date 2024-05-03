@@ -1,0 +1,4 @@
+npm init -y
+npm install --save-dev eslint@8.16.0 --save-exact   // extensao funciona apenas para dev e sugere mais correções que o VSCode padrao
+npx eslint --init
+npx eslint index.js   //verifica se tem erros
