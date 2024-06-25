@@ -19,7 +19,7 @@ public class Main {
             System.out.println("Alugar!");
         }
         double media = (9.5 + 8.3 + 5) /3;                     //média dos votos cadastrados
-        String mediaFinal = String.format("%.2f", media);     /* comentar varias linhas */
+        String mediaFinal = String.format("%.2f", media);     /* comentar varias linhas  */
         System.out.println("Nota Geral: " + mediaFinal);
 
         String sinopse;
